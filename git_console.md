@@ -12,14 +12,14 @@ PS D:\1.Proy_Discor> git commit -m"primer commit" # 2 archivos actuales por guar
 # AHORA CREAMOMOS EL REPOSITORIO Y COPIAMOS EL CODIGO DEL REPOSITORIO (…or push an existing repository from the command line)
 PS D:\1.Proy_Discor> git remote add origin https://github.com/CJose98/Proy_Discor.git
 PS D:\1.Proy_Discor> git branch -M main
-PS D:\1.Proy_Discor> git push -u origin main
+PS D:\1.Proy_Discor> git push -u origin main -f
 
 # Se sube a la nube
 
 
 # /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-PS D:\1.Proy_Discor>  clear # limpiar pantalla
+PS D:\1.Proy_Discor>  clear     # limpiar pantalla
 PS D:\1.Proy_Discor> git branch # me permite ver en donde estoy parado (actualmente esto parado en main)
 * main
 
@@ -106,6 +106,8 @@ PS D:\1.Proy_Discor> git push              # o guardamos con esto
 PS D:\1.Proy_Discord\api> git init                              # INICIALIZAMOS INIT
 PS D:\1.Proy_Discord\api> git branch                            # VEMOS EN DONDE ESTAMOS PARADO
 PS D:\1.Proy_Discord\api> git add .                             # ENTRAMOS AL AREA DE PREPARACION
+PS D:\1.Proy_Discord\api> git status                            # VEMOS EL ESTADO
+PS D:\1.Proy_Discord\api> git branch -M main                    # NOS UBICAMOS EN MAIN
 PS D:\1.Proy_Discord\api> git commit -m"primer commit"          # CREAMOS NUESTRO PRIMER COMMIT
 PS D:\1.Proy_Discord\api> git remote add origin https://github.com/CJose98/app.git  # NOS UNIMOS AL REPOSITORIO
 PS D:\1.Proy_Discord\api> git push -u origin main -f                                # AGREGAMOS NUESTRO REPOSITORIO LOCAL AL REPOSITORIO DE GITHUB
