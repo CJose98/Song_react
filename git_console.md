@@ -1,3 +1,6 @@
+
+# ** GIT   **__ GITHUB __** GIT **
+
 PS D:\02_PYTHON>     cd 1.Proy_Discor
 PS D:\1.Proy_Discor> git init #inicializa nuestro repositorio
 PS D:\1.Proy_Discor> git add .     #Entramos a la area de preparacion
