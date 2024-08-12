@@ -455,6 +455,6 @@ export const Router = createBrowserRouter(
         },
     ],
     {
-        basename: "/spotify/",
+        basename: "/Song_react/",
     },
 );
