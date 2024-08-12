@@ -1,0 +1,108 @@
+/* ********************************** */
+/*         CONTENIDO PRINCIPAL        */
+/* ********************************** */
+
+.title-playlist {
+	font-size: 2.4rem;
+	color: #fff;
+	cursor: pointer;
+	font-weight: 600;
+}
+
+.title-playlist:hover {
+	text-decoration: underline;
+}
+	
+.container-name-concentracion{
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	margin-bottom: 2rem;
+    margin-top: 5rem; /*agregado y modificado*/
+}
+
+.container-card-concentracion{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+	gap: 2.4rem;
+}
+
+.card-concentracion{
+	background-color: #181818;
+	border-radius: 0.5rem;
+	padding: 1.6rem;
+	box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+	transition: background-color 0.3s ease;
+	cursor: pointer;
+	position: relative;
+}
+
+.card-concentracion:hover{
+	background-color: #282828;
+}
+
+.card-img #imgId {
+	width: 100%;
+	height: 150px;/*agregado-*/
+	border-radius: 0.5rem;
+}
+
+.card-img {
+	overflow: hidden;
+}
+
+.card h2 {
+	margin-top: 1.5rem;
+	margin-bottom: 1rem;
+	font-size: 1.6rem;
+	color: #fff;
+	font-weight: 600;
+}
+
+.card p {
+	font-size: 1.3rem;
+	color: #b3b3b3;
+	font-weight: 400;
+	line-height: 1.5;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
+/* Clases Adicionales */
+.transparent {
+	opacity: 0.9;
+}
+
+.btn-play {
+	width: 4rem;
+	height: 4rem;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+    background-color: #1ed760;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    position: absolute;
+    top: 55%;
+    left: 52%;
+    transform: translate(50%, -50%);
+    cursor: pointer;
+}
+
+.btn-play i{
+    font-size: 2.3rem;
+    padding-left: .5rem;
+}
+
+.btn-play i #imgd{
+	height: 15px;
+	width: 15px;
+	margin-top: 5px;
+	margin-right: 4px;
+}

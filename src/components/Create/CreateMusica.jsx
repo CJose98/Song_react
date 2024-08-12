@@ -1,0 +1,79 @@
+import React, { useState } from "react";
+import useFetch from "../../hooks/useFetch_Auth";
+import "../../styles/css/artista_create.css"
+
+export default function CreateMusica(){
+    const [triggerFetch, setTriggerFetch] = useState(false);
+    const [artData, setArtData] = useState({ title: "", year: "", album: ""});
+    const token = localStorage.getItem("AuthToken") //const {token} = useAuth("state")// otra forma de obtener el token
+
+    //VERIFICAR SI SE AGREGA TODOS LOS DATOS
+    let updateData = {title: artData.title.trim()};  
+    // Solo incluir bio si no esta vacio
+    if (artData.year) {updateData = {...updateData, year: artData.year.trim()}} 
+    // Solo incluir bio si no esta vacio
+    if (artData.album) {updateData = {...updateData, album: artData.album.trim()}}
+    
+    const mapped = Object.keys(updateData).map(key => {return `${key}: ${updateData[key]}`})
+    console.log("MAPEO: ", mapped);
+
+
+    const [{data, isError, isLoading}, doFetch] = useFetch(
+        'https://sandbox.academiadevelopers.com/harmonyhub/songs/',
+        {
+            method: 'POST',
+            headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Token ${token}`
+                    },
+            body: JSON.stringify(updateData), 
+        }
+    );
+
+    const handleInputChange = (event) =>{
+        setArtData({
+            ...artData,
+            [event.target.name]: event.target.value,
+        })
+    }
+
+    const handleSubmit=(event)=>{
+        event.preventDefault();
+        setTriggerFetch(true);
+        doFetch()
+        }
+   
+    return(
+        <div className="container_create_artista">
+            <div className="formulario_art">
+                <form id="loginForm" onSubmit={handleSubmit}>
+                    <h1>Create Musica</h1>
+                    <div className="icons">
+                        <img src="/img/concentracion/spotify.png" alt="logo"/>
+                    </div>
+                    <div className="input-box">
+                        <input type="text" id="username" name="title" placeholder="Title-priority" required
+                            value={artData.title}
+                            onChange={handleInputChange}/>
+                    </div>
+                    <div className="input-box">
+                        <input type="number" id="username" name="year" placeholder="Year" 
+                            value={artData.year}
+                            onChange={handleInputChange}/>
+                    </div>
+                    <div className="input-box">
+                        <input type="number" id="username" name="album" placeholder="Id album" 
+                            value={artData.album}
+                            onChange={handleInputChange}/>
+                    </div>
+                    <div className="register-link">
+                        <button type="submit" className="btn">Create</button>
+                        {isLoading && triggerFetch && (<p>Cargando...</p>)}
+                        {isError && <p>Error al crear la musica.</p>}
+                        {data && (<p>enviado</p>)}
+                    </div>
+                </form>
+            </div>
+        </div>
+    );
+}
