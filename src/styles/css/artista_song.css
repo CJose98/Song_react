@@ -1,0 +1,221 @@
+
+.container_artista_song {
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - var(--footer-height)) !important;
+}
+
+/*RAGHT*/
+.right {
+    width: 100%;
+}
+
+/* PLAYLIST HEADER*/
+.playlist-header {
+    padding: 20px;
+}
+.playlist-header {
+background: rgb(255,255,255);
+background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
+}
+
+.playlist-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    margin-top: 20px;
+}
+
+.playlist-cover #imgp {
+    width: 250px;
+    height: 250px;
+    box-shadow: 0px 2px 35px -1px rgba(0,0,0,0.45);
+-webkit-box-shadow: 0px 2px 35px -1px rgba(0,0,0,0.45);
+-moz-box-shadow: 0px 2px 35px -1px rgba(0,0,0,0.45);
+}
+
+.playlist-info {
+    color:white;
+    padding-left: 20px;
+}
+
+.playlist-title {
+    font-size: 86px;
+    font-weight: 1000;
+
+    margin-top: 10px;
+    /*font-family: "AvenirLTStd-Black";*/
+}
+
+.playlist-stats span:first-of-type {
+    font-weight: 1000;
+    /*font-family: "AvenirLTStd-Black";*/
+}
+
+/**  BOTONES **/
+.playlist-buttons-left, .playlist-buttons-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playlist-buttons-resume-pause {
+    background-color: var(--spotify-green);
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.playlist-buttons-like svg path{
+    fill: var(--spotify-green);
+}
+
+.playlist-buttons-like {
+    margin-left: 20px;
+}
+
+.playlist-songs-container {
+    height: 1000px;
+    padding: 20px;
+    background: rgb(95,95,95);
+    background: linear-gradient(180deg, rgba(95,95,95,1) 0%, rgba(18,18,18,1) 22%, rgba(18,18,18,1) 100%);
+}
+
+.playlist-buttons-download, .playlist-buttons-three-dot {
+    margin-left: 20px;
+}
+.playlist-buttons-three-dot #conf{
+    background-color: var(--spotify-green);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.playlist-buttons-download svg path, .playlist-buttons-three-dot svg path, .playlist-buttons-search svg path {
+    fill: #CACACA;
+}
+
+.playlist-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.playlist-buttons-order {
+    color:#CACACA;
+}
+
+.playlist-buttons-order {
+    padding-left: 20px;
+}
+
+
+/** CANCIONES **/
+.playlist-songs {
+    margin-top: 20px;
+}
+
+.playlist-songs table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.playlist-songs table tr td, .playlist-songs table tr th {
+    padding: 10px;
+    color: #CACACA;
+}
+
+.playlist-songs table tr th {
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 200;
+    letter-spacing: 2px;
+}
+
+
+.playlist-songs table tr:first-of-type {
+    border-bottom: 1px solid #CACACA;
+}
+
+.playlist-songs table th {
+    text-align: left;
+}
+
+.playlist-songs table tr th:first-child{
+    width: 2%;
+}
+
+.playlist-songs table tr th:nth-child(2) {
+    width: 40%;
+}
+
+.modific{
+    padding: 1px;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+
+    border-radius: 2rem;
+    background-color: #1ed760;
+    border: none;
+    cursor: pointer; 
+}
+#imghh{
+    width: 35px;
+    height: 30px;
+    align-items: center;
+}
+
+.play{
+    padding: 0.5px;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+
+    border-radius: 2rem;
+    background-color: #1ed760;
+    border: none;
+    cursor: pointer; 
+}
+.song-image-play #play_a{
+    width: 20px;
+    height: 15px;
+    align-items: center;
+    margin-left: 2px;
+    margin-top: 3px;
+}
+
+.song-image #imgj {
+    width: 34px;
+    height: 34px;
+}
+
+.song-title {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.song-name-album {
+    padding-left: 15px;
+    letter-spacing: 0.5px;
+}
+
+.song-name, .footer-player-left-song-name {
+    font-weight: 400;
+    font-size:14px;
+    color: white;
+}
+
+.song-artist, .song-album, .song-date-added, .footer-player-left-song-artist, .player-time, .song-duration {
+    font-size: 12px;
+    margin-top: 6px;
+    color: #898989 !important;
+}

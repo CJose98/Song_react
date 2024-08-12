@@ -139,6 +139,7 @@ Switched to branch 'jose'
 # """ UNA VEZ PARADO EN EL USUARIO JOSE EMPEZAMOS A MODIFICAR """ ***********************************************************************************
 
 PS D:1.Proy_Discord\api> git add .                                       # GUARDAMOS LO MODIFICADO
+PS D:\1.Proy_Discord\api> git status                                     # ESTADO
 PS D:\1.Proy_Discord\api> git commit -m"primera  modificacion de jose"   # CREAMOS NUESTRO PRIMER COMMIT
 PS D:\1.Proy_Discord\api> git checkout main                              # AHORA NOS PARAMOS EN MAIN
 Switched to branch 'main'
