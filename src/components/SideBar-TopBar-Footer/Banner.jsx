@@ -7,12 +7,12 @@ export default function Banner(){
             <div className="content">
                 <span>Muestra de spotify</span>
                 <p>
-                    Regístrate para disfrutar de canciones y podcasts sin
+                    Disfruta de canciones y podcasts sin
                     límites, con anuncios ocasionales. No hace falta tarjeta de
                     crédito
                 </p>
             </div>
-            <button className="btn-full">Registrarte gratis</button>
+            <button className="btn-full">Welcome</button>
         </div>
     );
 }
