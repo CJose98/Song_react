@@ -18,7 +18,7 @@ export default function CardArt({ artista }) {
                 <div className="card-img">
                     <img
                         id="imgId"
-                        src="/img/concentracion/beats to think.jpg"//src={artista.image ? artista.image : "/img/concentracion/beats to think.jpg"}
+                        src={artista.image ? artista.image : "/img/concentracion/beats to think.jpg"}//src="/img/concentracion/beats to think.jpg"//src={artista.image ? artista.image : "/img/concentracion/beats to think.jpg"}
                         alt={artista.name || 'Artista'}
                         onError={(e) => { e.target.src = "/img/concentracion/beats to think.jpg"; }} // Manejo de errores de carga
                     />
