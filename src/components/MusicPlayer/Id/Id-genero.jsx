@@ -53,7 +53,7 @@ export default function IdGeneroSong({id_gen, id_song_p, nom_b }) {
     if (songs.length === 0) return <th>No hay musica de genero disponible</th>
 
     //1* Filtramos las "Song Artist List" del artista seleccionado.
-    const generoSongs = songs.filter((gen) => String(gen.song) === String(id_song_p) && String(gen.genres) === String(id_gen));
+    const generoSongs = songs.filter((gen) => String(gen.song) === String(id_song_p) && String(gen.genre) === String(id_gen));
     const id_song = generoSongs.length > 0 ? generoSongs[0].id : null;
     console.log("song-id_genero: ", generoSongs[0]);
 
