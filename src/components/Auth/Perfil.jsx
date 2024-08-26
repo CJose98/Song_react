@@ -14,14 +14,12 @@ export default function Perfil() {
                         <img src="/img/concentracion/spotify.png" alt="logo"/>
                     </div>
                     <div className="register-link">
-                        <button className="btn">
-                            <p>{state.username}</p>
-                        </button>
+                        <p>Usuario</p>
+                        <h3>{state.username}</h3>    
                     </div>
                     <div className="register-link">
-                        <button className="btn">
-                            <p>{state.password}</p>
-                        </button>
+                        <p>Password</p>
+                        <h3>{state.password}</h3>
                     </div>
                 </form>
             </div>

@@ -21,9 +21,19 @@ export default function DeleteSongGenero() {
 
     const handleSubmit=(event)=>{
         event.preventDefault();
+        const isConfirmed = window.confirm('¿Estás seguro de que deseas eliminar los datos?');
+
+        if (isConfirmed) {
+        alert('¡Has hecho clic en confirmar!');
+        // Enviamos los datos
         setTriggerFetch(true);
         doFetch()
+
+        } else {
+        alert('Operación cancelada');
+        
         }
+    }
 
     return(
         <div className="container_create_artista">

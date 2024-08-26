@@ -75,7 +75,7 @@ export default function SongList_Album({id_song}) {
                     <td className="song-date-added">{data.year}</td>
                     <td className="song-duration">{Math.floor(data.duration / 60)}:{(data.duration % 60).toString().padStart(2, '0')}</td>
 
-                    {console.log("??id: ", data.id)}
+                   
                     <IdAlbumSong id_song_p={data.id} nom_b={data.title}/>
                 </tr>   
             </tbody>

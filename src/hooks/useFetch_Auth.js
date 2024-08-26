@@ -3,6 +3,7 @@ import { ACTIONS } from "../actions/action_Auth";
 import { reducer } from  "../reducer/reducer_Auth"
 
 function useFetch(url, options = {}) {
+
     const [state, dispatch] = useReducer(
         reducer,
         { isError: false, isLoading: true, data: null }
@@ -20,10 +21,12 @@ function useFetch(url, options = {}) {
             const contentType = response.headers.get("Content-Type");
             if (contentType && contentType.includes("application/json")) {
                 data = await response.json();
+                
             }
-
             //const data = await response.json();
             dispatch({ type: ACTIONS.FETCH_SUCCESS, payload: data });
+            
+            //console.log("datos de fetch:", data.results)
             return data; // Devuelve los datos
         } catch (e) {
             dispatch({ type: ACTIONS.FETCH_FAILURE });

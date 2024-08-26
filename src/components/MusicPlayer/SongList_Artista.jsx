@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import useAudio from "../../hooks/useAudio"
 import IdArtistaSong from "./Id/Id-artista";
 
-export default function SongList_Artista({id_song}) {
+export default function SongList_Artista({id_art, id_song}) {
     const [song_play, setSong_play] = useState("");
     // Usa el hook personalizado con una URL de canción de ejemplo
     const [playMusic, setMusic] = useAudio(song_play);
@@ -75,8 +75,7 @@ export default function SongList_Artista({id_song}) {
                     <td className="song-date-added">{data.year}</td>
                     <td className="song-duration">{Math.floor(data.duration / 60)}:{(data.duration % 60).toString().padStart(2, '0')}</td>
 
-                    {console.log("??id: ", data.id)}
-                    <IdArtistaSong id_song_p={data.id} nom_b={data.title}/>
+                    <IdArtistaSong id_art={id_art} id_song_p={data.id} nom_b={data.title}/>
                 </tr>   
             </tbody>
         </table>
