@@ -101,9 +101,9 @@ export default function AlbumsSong({album}) {
 
                     {/*CANCIONES*/}
                     {console.log("id para modificar el album: ",album.id," id_song modifica una musica: ", id_song)}
-                    {isLoading && (<p>Cargando...</p>)}
-                    {isError && <p>Error al cargar las musicas de album</p>}
-                    {id_song? <SongList_Album id_song={id_song}/> : <p>No hay musica de album disponible</p>}
+                    {/*isLoading && (<p>Cargando...</p>)*/}
+                    {/*isError && <p>Error al cargar las musicas de album</p>*/}
+                    {/*id_song? <SongList_Album id_song={id_song}/> : <p>No hay musica de album disponible</p>*/}
 
                 </div>
             </div>

@@ -10,14 +10,13 @@ export default function UpdateGenero(){
     const [artData, setArtData] = useState({ name: "", description: ""});
     const token = localStorage.getItem("AuthToken") //const {token} = useAuth("state")// otra forma de obtener el token
 
-    console.log("Update genero: ", id)
     //VERIFICAR SI SE AGREGA TODOS LOS DATOS
     let updateData = {name: artData.name.trim()}; //prioridad
     // Solo incluir bio si no esta vacio
     if (artData.description) {updateData = {...updateData, description: artData.description}} 
 
     const mapped = Object.keys(updateData).map(key => {return `${key}: ${updateData[key]}`})
-    console.log("MAPEO: ", mapped);
+    //console.log("MAPEO: ", mapped);
 
 
     const [{data, isError, isLoading}, doFetch] = useFetch(
@@ -41,9 +40,18 @@ export default function UpdateGenero(){
 
     const handleSubmit=(event)=>{
         event.preventDefault();
+        const isConfirmed = window.confirm('¿Estás seguro de que deseas modificar los datos?');
+
+        if (isConfirmed) {
+        alert('¡Has hecho clic en confirmar!');
+        // Enviamos los datos
         setTriggerFetch(true);
         doFetch()
+
+        } else {
+        alert('Operación cancelada');
         }
+    }
 
 
     return(
@@ -55,17 +63,18 @@ export default function UpdateGenero(){
                         <img src="/img/concentracion/spotify.png" alt="logo"/>
                     </div>
                     <div className="input-box">
-                        <input type="text" id="username" name="name" placeholder="Name-priority" required
+                        <input type="text" id="username" name="name" placeholder="Nombre-requerido" required
                             value={artData.name}
                             onChange={handleInputChange}/>
                     </div>
                     <div className="input-box">
-                        <input type="text" id="username" name="description" placeholder="Description"
+                        <input type="text" id="username" name="description" placeholder="Descripcion"
                             value={artData.description}
                             onChange={handleInputChange}/>
                     </div>
                     <div className="register-link">
                         <button type="submit" className="btn">Update</button>
+                        {console.log("Update genero: ", id, "name: ", artData.name, "descripcion: ", artData.description)}
                         {isLoading && triggerFetch && (<p>Cargando...</p>)}
                         {isError && <p>Error al modificar el genero.</p>}
                         {data && (<p>enviado</p>)}

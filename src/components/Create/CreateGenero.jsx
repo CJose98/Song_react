@@ -37,9 +37,18 @@ export default function CreateGenero(){
 
     const handleSubmit=(event)=>{
         event.preventDefault();
+        const isConfirmed = window.confirm('¿Estás seguro de que deseas crear los datos?');
+
+        if (isConfirmed) {
+        alert('¡Has hecho clic en confirmar!');
+        // Enviamos los datos
         setTriggerFetch(true);
         doFetch()
+
+        } else {
+        alert('Operación cancelada');
         }
+    }
    
     return(
         <div className="container_create_artista">
@@ -50,12 +59,12 @@ export default function CreateGenero(){
                         <img src="/img/concentracion/spotify.png" alt="logo"/>
                     </div>
                     <div className="input-box">
-                        <input type="text" id="username" name="name" placeholder="Name-priority" required
+                        <input type="text" id="username" name="name" placeholder="Nombre-requerido" required
                             value={artData.name}
                             onChange={handleInputChange}/>
                     </div>
                     <div className="input-box">
-                        <input type="text" id="username" name="description" placeholder="Description"
+                        <input type="text" id="username" name="description" placeholder="Descripcion"
                             value={artData.description}
                             onChange={handleInputChange}/>
                     </div>

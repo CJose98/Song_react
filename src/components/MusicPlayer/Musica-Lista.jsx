@@ -10,7 +10,7 @@ export default function MusicaSong() {
     const [playMusic, setMusic] = useAudio(song_play);
     const [songs, setSongs] = useState([]);
     const token = localStorage.getItem("AuthToken") //const {token} = useAuth("state")// otra forma de obtener el token
-    const [nextUrl, setNextUrl] = useState("https://sandbox.academiadevelopers.com/harmonyhub/songs/");
+    const [nextUrl, setNextUrl] = useState("https://sandbox.academiadevelopers.com/harmonyhub/songs/?page=27");
 
 
     const [{ data, isError, isLoading }, doFetch] = useFetch(
@@ -52,8 +52,6 @@ export default function MusicaSong() {
     if (songs.length === 0) return <p>No hay musicas disponibles</p>
 
     const handlePlay = (music_busc) => {
-        console.log(music_busc)
-        console.log("?**? ",playMusic)
         if (music_busc) {
             setSong_play(music_busc); // Actualizar song_play
             setMusic(); // Alternar la reproducción
@@ -88,22 +86,16 @@ export default function MusicaSong() {
                     </thead>
 
                     {songs.map((song) => (
+                        
                     <tbody>
                         <tr key={song.id}>
                             <td>
                                 <div>
+                                    {/* MUSICA - PLAY */}
                                     <audio controls>
                                         <source src={song.song_file} type="audio/mpeg" />
                                     </audio>
 
-                                    {/* Botón para alternar la reproducción 
-                                    <button className="play" onClick={() => handlePlay(song.song_file)}>
-                                        {/*playMusic ? "Pausar" : "Reproducir"  
-                                        <div className="song-image-play">
-                                            <img src="/img/concentracion/A_play.png" id="play_a" />
-                                        </div>
-                                    </button>
-                                    */}
                                 </div>
                             </td>
                             <td className="song-title">

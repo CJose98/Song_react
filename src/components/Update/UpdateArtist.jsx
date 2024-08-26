@@ -8,8 +8,6 @@ export default function UpdateArtist(){
     const {id} = useParams();
     const [triggerFetch, setTriggerFetch] = useState(false);//verificacion
     const [artData, setArtData] = useState({ name: "", bio: "", website: "" });
-
-    //Obtener el token guardado.
     const token = localStorage.getItem("AuthToken") //const {token} = useAuth("state")// otra forma de obtener el token
 
      // Función para asegurarse de que la URL tenga un esquema adecuado
@@ -26,11 +24,8 @@ export default function UpdateArtist(){
 
     //VERIFICAR SI SE AGREGA TODOS LOS DATOS
     let updateData = {name: artData.name.trim()}; //prioridad
-    // Solo incluir bio si no esta vacio
     if (artData.bio) {updateData = {...updateData, bio:artData.bio.trim()}} 
-    // Solo incluir website si formatURL(artData.website) no es null
-    const formattedWebsite = formatURL(artData.website);
-    if (formattedWebsite) {updateData = {...updateData, website:formattedWebsite}}
+    if (artData.website) {updateData = {...updateData, website:formatURL(artData.website)}}
     
     const mapped = Object.keys(updateData).map(key => {return `${key}: ${updateData[key]}`})
     console.log("MAPEO: ", mapped);
@@ -57,9 +52,18 @@ export default function UpdateArtist(){
 
     const handleSubmit=(event)=>{
         event.preventDefault();
+        const isConfirmed = window.confirm('¿Estás seguro de que deseas modificar los datos?');
+
+        if (isConfirmed) {
+        alert('¡Has hecho clic en confirmar!');
+        // Enviamos los datos
         setTriggerFetch(true);
         doFetch()
+
+        } else {
+        alert('Operación cancelada');
         }
+    }
 
 
     return(
@@ -71,7 +75,7 @@ export default function UpdateArtist(){
                         <img src="/img/concentracion/spotify.png" alt="logo"/>
                     </div>
                     <div className="input-box">
-                        <input type="text" id="username" name="name" placeholder="Name-priority" required
+                        <input type="text" id="username" name="name" placeholder="Nombre-requerido" required
                             value={artData.name}
                             onChange={handleInputChange}/>
                     </div>

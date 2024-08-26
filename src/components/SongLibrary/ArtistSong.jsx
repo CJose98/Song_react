@@ -1,5 +1,5 @@
 import "../../styles/css/artista_song.css"
-import { useEffect } from "react";
+import { useEffect, useState} from "react";
 import useFetch from "../../hooks/useFetch_Auth"
 import { useNavigate } from "react-router-dom";
 import SongList_Artista from "../MusicPlayer/SongList_Artista";
@@ -7,28 +7,56 @@ import SongList_Artista from "../MusicPlayer/SongList_Artista";
 export default function ArtistSong({artista}) {
     const navigate = useNavigate();
     const token = localStorage.getItem("AuthToken")
+     //Obtener Datos
+     const [songs, setSongs] = useState([]);
+     const [nextUrl, setNextUrl] = useState("https://sandbox.academiadevelopers.com/harmonyhub/song-artists/");
 
-    console.log("id artista: ", artista.id)
     const[{data, isError, isLoading}, doFetch] = useFetch(
-        "http://sandbox.academiadevelopers.com/harmonyhub/song-artists/",
+        nextUrl,
         {
             method: 'GET',
             headers: {'Content-Type': 'application/json',    'Authorization': `Token ${token}`},
         }
     );
 
-    useEffect(()=>{
-        doFetch();
-    }, []);
+//----------OBTENER DATOS MUSICAL------------------------------------------------------------------------------------->
 
-    if (isLoading) return <p>Cargando...</p>
-    if (isError) return <p>Error al cargar las canciones</p>
-    if (!data) return <p>No hay canciones disponibles</p>
+function ensureHttps(url) {
+    if (url.startsWith("http://")) {
+        url = "https://" + url.slice(7);
+    }
+    return url;
+}
+useEffect(() => {
+    if (data) {
+        setSongs(prevArtists => [...prevArtists, ...data.results]);
+        if (data.next) {
+            setNextUrl(ensureHttps(data.next));
+        }
+    }
+}, [data])
+
+useEffect(() => {
+    //si la url no es nula ejecuta doFetch
+    if (nextUrl) {
+        doFetch(nextUrl,
+            { //OPTIONS
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Token ${token}` },
+            }
+        ); //cuanfo la url cambia hace una nueva peticion a la paginna siguiente(siempre q exista)
+    }
+}, [nextUrl]);
+
+if (isLoading) return <p>Cargando...</p>
+if (isError) return <p>Error al cargar los artistas, recarga la pagina</p>
+if (songs.length === 0) return <p>No hay artista disponibles</p>
+
 
     //1* Filtramos las "Song Artist List" del artista seleccionado.
-    const artistSongs = data.results.filter((artista_song)=> String(artista_song.artist) === String(artista.id));
-    console.log("id artista: ", artistSongs)
+    const artistSongs = songs.filter((artista_song)=> String(artista_song.artist) === String(artista.id));
     const id_song = artistSongs.length > 0 ? artistSongs[0].song : null;
+    //console.log("song-artista: ",artistSongs[0])
 
     //Envio de datos para crear artista
     const handleClick =(subId)=>{
@@ -36,6 +64,10 @@ export default function ArtistSong({artista}) {
     }
     const handleClickEliminar =(subId_e, name_e)=>{
         navigate(`/eliminar-artista/${subId_e}`, {state:{art_eliminar: name_e}})
+    }
+    const handleClickCrear =(subId_e)=>{
+        console.log("id**: ",subId_e)
+        navigate(`/song-artista-create`, {state:{id_artista: subId_e}})
     }
                  
     return (
@@ -53,10 +85,10 @@ export default function ArtistSong({artista}) {
                             />
                         </div>
                         <div className="playlist-info">
-                            <div className="playlist-title"></div>
+                            <div className="playlist-title">{artista.name}</div>
                            {/* <div style={{ height: '10px' }}></div> */}
                             <div className="playlist-stats">
-                                <div className="song-name">{artista.name}</div>
+                                <div className="song-name">{artista.bio}</div>
                                 <span>25.734.892 oyentes mensuales</span>
                             </div>
                         </div> 
@@ -82,10 +114,18 @@ export default function ArtistSong({artista}) {
                                 </button>
                             </div>
                             <div className="playlist-buttons-three-dot">
-                                {/* MODIFICAR ARTISTA */}
+                                {/* MODIFICAR ARTISTA  */}
                                 <button className="modific" onClick={()=> handleClick(artista.id)}> 
                                     <div className="song-image-play">
                                         <img src="/img/concentracion/modificar.png" id="imghh"/>
+                                    </div>
+                                </button>
+                            </div>
+                            <div className="playlist-buttons-three-dot">
+                                {/* CREAR MUSICA-ART */}
+                                <button className="modific" onClick={()=> handleClickCrear(artista.id)}> 
+                                    <div className="song-image-play">
+                                        <img src="/img/concentracion/crear.png" id="imghh"/>
                                     </div>
                                 </button>
                             </div>
@@ -104,7 +144,7 @@ export default function ArtistSong({artista}) {
                     {console.log("Artista Id: ",artista.id," Id musical de artista: ", id_song)}
                     {isLoading && (<p>Cargando...</p>)}
                     {isError && <p>Error al cargar los datos.</p>}
-                    {id_song ? <SongList_Artista id_song={id_song}/> : <p>No hay canciones disponibles</p>}
+                    {id_song ? <SongList_Artista id_art={artista.id} id_song={id_song}/> : <p>No hay canciones disponibles</p>}
 
                 </div>
             </div>

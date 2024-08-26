@@ -233,6 +233,9 @@ export const Router = createBrowserRouter(
 
 
 
+//----> privado ----> privado ---->privado ---->privado ---->privado ---->privado ---->privado ---->privado ---->privado ---->
+
+
 
                 //********* */
                 //Paginas  ... PRIVADA   ___*-*
@@ -259,6 +262,7 @@ export const Router = createBrowserRouter(
                 //********* */
                 //ARTISTA
                 //******** */
+
                 {
                     path: "/spotify/id-artista/:id",
                     element: (

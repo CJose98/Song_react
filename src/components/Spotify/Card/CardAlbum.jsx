@@ -18,7 +18,7 @@ export default function CardAlbum({ album }) {
                 <div className="card-img">
                     <img
                         id="imgId"
-                        src="/img/concentracion/peacefulpiano.jpg"//src={album.cover ? album.cover : "/img/concentracion/peacefulpiano.jpg"}
+                        src={album.cover ? album.cover : "/img/concentracion/peacefulpiano.jpg"}//src="/img/concentracion/peacefulpiano.jpg"//src={album.cover ? album.cover : "/img/concentracion/peacefulpiano.jpg"}
                         alt="Album"
                         onError={(e) => { e.target.src = "/img/concentracion/peacefulpiano.jpg"; }} // Manejo de errores de carga
                     />

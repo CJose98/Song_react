@@ -28,7 +28,7 @@ export default function Albunes() {
         if (data){
             setArtists(prevAlbums => [...prevAlbums, ...data.results]);
             if (data.next){
-                setNextUrl(data.next);
+                setNextUrl(ensureHttps(data.next));
             }   
         }
     },[data])

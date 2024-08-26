@@ -4,11 +4,10 @@ import { useEffect } from "react";
 import useAudio from "../../hooks/useAudio"
 import IdGeneroSong from "./Id/Id-genero";
 
-export default function SongList_Genero({id_song}) {
+export default function SongList_Genero({id_ge, id_song}) {
     const [song_play, setSong_play] = useState("");
     // Usa el hook personalizado con una URL de canción de ejemplo
     const [playMusic, setMusic] = useAudio(song_play);
-
 
     const [{ data, isError, isLoading }, doFetch] = useFetch(
         `https://sandbox.academiadevelopers.com/harmonyhub/songs/${id_song}`,
@@ -75,8 +74,7 @@ export default function SongList_Genero({id_song}) {
                     <td className="song-date-added">{data.year}</td>
                     <td className="song-duration">{Math.floor(data.duration / 60)}:{(data.duration % 60).toString().padStart(2, '0')}</td>
 
-                    {console.log("??id: ", data.id)}
-                    <IdGeneroSong id_song_p={data.id} nom_b={data.title}/>
+                    <IdGeneroSong id_gen={id_ge} id_song_p={data.id} nom_b={data.title}/>
                 </tr>   
             </tbody>
         </table>

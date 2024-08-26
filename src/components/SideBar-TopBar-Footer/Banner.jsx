@@ -12,7 +12,7 @@ export default function Banner(){
                     crédito
                 </p>
             </div>
-            <button className="btn-full">Welcome</button>
+            {/*<button className="btn-full">Welcome</button>*/}
         </div>
     );
 }

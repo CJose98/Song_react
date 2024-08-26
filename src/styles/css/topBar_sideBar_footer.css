@@ -34,7 +34,12 @@
 .container-arrow-left i,
 .container-arrow-right i {
 	color: #fff;
-	font-size: 1.4rem;
+	font-size: 2.2rem;
+}
+.btn-go{
+	background-color: black;
+	border: none;
+	cursor: pointer;
 }
 
 .buttons-user {
