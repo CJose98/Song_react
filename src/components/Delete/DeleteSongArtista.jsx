@@ -10,6 +10,7 @@ export default function DeleteSongArtista() {
     const [triggerFetch, setTriggerFetch] = useState(false);//verificacion
     const token = localStorage.getItem("AuthToken")
 
+    console.log("Eliminar song Genero: ", id);
     const[{data, isError, isLoading}, doFetch] = useFetch(
         `http://sandbox.academiadevelopers.com/harmonyhub/song-artists/${id}`,
         {
