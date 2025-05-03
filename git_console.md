@@ -153,3 +153,33 @@ PS D:\1.Proy_Discord\api> git merge jose                                 # COMPA
 
 PS D:\1.Proy_Discord\api> git push -u origin jose    
 
+
+
+# $$$$$$$$$$$$$$$$$
+
+# USUARIO Y COTRASEÑA
+
+# 41180312
+# TC5tQbgc4v
+# ----------------------------------------------
+# ruta:  http://localhost:5173/Song_react/inicio
+------------------------------------------------
+
+# Volver a utilizar mi proyecto (UTILIZA ESTOS COMANDOS ANTES)
+
+# verifica si esta instalado node y npm
+PS D:\Service_Proy\0_Song> node -v
+v20.17.0
+PS D:\Service_Proy\0_Song> npm -v
+10.8.2
+# Actualiza las dependencias
+PS D:\Service_Proy\0_Song> npm update
+npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+npm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+
+added 12 packages, removed 1 package, changed 93 packages, and audited 240 packages in 11m
+
+105 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
