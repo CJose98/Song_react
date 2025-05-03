@@ -1,4 +1,4 @@
-#   ""    Spotify     ""
+#   ""    Spotify    🎵🎶  ""
 
 # Aplicacion de Musica con React Js, API (Python, Django), HTML, CSS, Bulma,
 
